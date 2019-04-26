@@ -15,13 +15,20 @@ public class MyWorld extends World
     {    
         super(600, 400, 1);
         setUp();
+
+        // Make a loop
+        for(int i = 1; i <= 18;i += 1)
+        {
+            addObject(new Leaf(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+         }
     }
-    
+
     /**
      * Create the initial objects in the world.
      */
     private void setUp()
     {
         addObject(new Block(), 300, 200);
+
     }
 }
