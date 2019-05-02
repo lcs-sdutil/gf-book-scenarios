@@ -66,7 +66,7 @@ public class Block extends Actor
             //1. Add a reference to the world
             World myWorld =getWorld();
             //2. Use the object reference to call, or use, a method on the World object
-            myWorld.addObject(new Leaf(), getX() ,getY() -50);
+            myWorld.addObject(new Leaf(), getX() ,getY() -70);
         }
     }
 
@@ -82,8 +82,17 @@ public class Block extends Actor
             // 1. Get an object reference to the world
             World myWorld =getWorld();
             
-            // Make a message show on screen when the mouse is clicked
-            myWorld.showText("Moused was clicked", 200, 200);
+            // 2. Get a list that contains object references to ALL the leaf object in the world
+            //   Type   Name                      Class That we want Object of 
+            List<Leaf> leaves = myWorld.getObjects(Leaf.class);
+            
+            // 3. Iterate (loop) through the list of Leaf object
+            //    Each iteration will provide an object reference to a specific Leaf object
+            //    "For each Leaf in the leaves list..."
+            for (Leaf leaf : leaves)
+            {
+                leaf.changeImage();
+            }
         }
     }
 
